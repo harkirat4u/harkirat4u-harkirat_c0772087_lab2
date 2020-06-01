@@ -60,6 +60,18 @@
                 index++;
             }
         }
+        // function for adding new row
+        function addRow() {
+            var table = document.getElementById('mainTable');
+            row = table.insertRow(table.rows.length);
+            row.width = '100';
+            var index = 0;
+            while (index < table.rows[0].cells.length) {
+                var label = row.insertCell(index);
+                label.innerHTML = "  cell  ";
+                index++;
+            }
+        }
     </script>
     <!-- div where tabel is created -->
     <div id="mydiv"></div>
