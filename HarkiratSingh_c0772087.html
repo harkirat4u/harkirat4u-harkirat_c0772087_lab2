@@ -41,13 +41,14 @@
                 while (j < col) {
                     var td = document.createElement('Td');
 
-                    td.appendChild(document.createTextNode("cell"));
+                    td.appendChild(document.createTextNode("  cell  "));
                     tr.appendChild(td);
                     j++;
                 }
                 i++;
             }
             myDiv.appendChild(myTable);
+            myTable.border = '1';
         }
         // function for adding new coloumn
         function addColumn() {
@@ -55,23 +56,12 @@
             var index = 0;
             while (index < table.rows.length) {
                 var label = table.rows[index].insertCell(table.rows[index].cells.length);
-                label.innerHTML = "cell";
-                index++;
-            }
-        }
-        // function for adding new row
-        function addRow() {
-            var table = document.getElementById('mainTable');
-            row = table.insertRow(table.rows.length);
-            var index = 0;
-            while (index < table.rows[0].cells.length) {
-                var label = row.insertCell(index);
-                label.innerHTML = "cell";
+                label.innerHTML = "  cell  ";
                 index++;
             }
         }
     </script>
-
+    <!-- div where tabel is created -->
     <div id="mydiv"></div>
 </body>
 
