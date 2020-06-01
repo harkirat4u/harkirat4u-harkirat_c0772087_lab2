@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <font size="8" color="green">Final test lab</font><br>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- for hidding elements section is created -->
+    <section id="hide">
+        <br> Number of rows: <input type="number" id="t1" /><br>
+        <br> Number of cols: <input type="number" id="t2" /><br><br>
+
+        <button id="b1" onclick="generateTable()">Generate Table</button><br><br>
+    </section>
+
+
+    <button id="b2" onclick="addColumn()">Add Column</button>
+
+    <button id="b3" onclick="addRow()">Add Row</button>
+
+    <script language="javascript">
+        // function for generate table
+        function generateTable() {
+            document.getElementById("hide").style.visibility = "collapse";
+            var row = document.getElementById("t1").value;
+            var col = document.getElementById("t2").value;
+            var myDiv = document.getElementById("mydiv");
+            var myTable = document.createElement('Table');
+            myTable.setAttribute("id", "mainTable");
+            var body = document.createElement('tbody');
+            myTable.appendChild(body);
+            for (var i = 0; i < row; i++) {
+                var tr = document.createElement('Tr');
+                body.appendChild(tr);
+
+                for (var j = 0; j < colm; j++) {
+                    var td = document.createElement('Td');
+
+                    td.appendChild(document.createTextNode("  cell  "));
+                    tr.appendChild(td);
+                    j++;
+                }
+            }
+            myDiv.appendChild(myTable);
+            myTable.border = '1';
+        }
+        // function for adding new coloumn
+        function addColumn() {
+            var table = document.getElementById('mainTable')
+            var index = 0;
+            while (index < table.rows.length) {
+                var label = table.rows[index].insertCell(table.rows[index].cells.length);
+                label.innerHTML = "  cell  ";
+                index++;
+            }
+        }
+        // function for adding new row
+        function addRow() {
+            var table = document.getElementById('mainTable');
+            row = table.insertRow(table.rows.length);
+            row.width = '100';
+            var index = 0;
+            while (index < table.rows[0].cells.length) {
+                var label = row.insertCell(index);
+                label.innerHTML = "  cell  ";
+                index++;
+            }
+        }
+    </script>
+    <!-- div where tabel is created -->
+    <div id="mydiv"></div>
+</body>
+
+</html>

@@ -32,27 +32,25 @@
             myTable.setAttribute("id", "mainTable");
             var body = document.createElement('tbody');
             myTable.appendChild(body);
-            let i = 0;
-            j = 0;
-            while (i < row) {
+
+            for (var i = 0; i < row; i++) {
                 var tr = document.createElement('Tr');
                 body.appendChild(tr);
 
-                while (j < col) {
+                for (var j = 0; j < col; j++) {
                     var td = document.createElement('Td');
 
                     td.appendChild(document.createTextNode("  cell  "));
                     tr.appendChild(td);
-                    j++;
+
                 }
-                i++;
             }
             myDiv.appendChild(myTable);
             myTable.border = '1';
         }
         // function for adding new coloumn
         function addColumn() {
-            var table = document.getElementById('mainTable')
+            var table = document.getElementById('mainTable');
             var index = 0;
             while (index < table.rows.length) {
                 var label = table.rows[index].insertCell(table.rows[index].cells.length);
